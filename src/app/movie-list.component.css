@@ -1,16 +1,24 @@
 .series-box {
-  border: dashed 1px #ccc;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  background-color: #fefefe;
+  box-shadow: 2px 2px #f5f5f5;
   display: inline-block;
   float: left;
   width: 200px;
-  min-height: 250px;
+  min-height: 350px;
   padding: 10px;
   margin: 5px 5px 5px 0;
 }
 
+.poster {
+  border: solid 1px #ccc;
+  min-height: 132px;
+  min-width: 92px;
+}
+
 .selected {
   background-color: #CFD8DC !important;
-  background-color: rgb(0, 120, 215) !important;
   color: white;
 }
 
@@ -33,8 +41,6 @@
 }
 
 .heroes li:hover {
-  color: #607D8B;
-  color: rgb(0, 120, 215);
   background-color: #DDD;
   left: .1em;
 }
@@ -55,7 +61,6 @@
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
   background-color: #607D8B;
-  background-color: rgb(0, 120, 215);
   line-height: 1em;
   position: relative;
   left: -1px;
@@ -66,13 +71,11 @@
 }
 
 button {
-  font-family: Arial;
   background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  cursor: hand;
 }
 
 button:hover {

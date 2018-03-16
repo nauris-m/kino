@@ -6,10 +6,10 @@ import {Component} from '@angular/core';
     <h1>{{title}}</h1>
     <div class="header-bar"></div>
     <nav>
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-      <a routerLink="/series" routerLinkActive="active">Series List</a>
+      <!--<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>-->
+      <!--<a routerLink="/heroes" routerLinkActive="active">Heroes</a>-->
       <a routerLink="/movies" routerLinkActive="active">Movie List</a>
+      <a routerLink="/series" routerLinkActive="active">Series List</a>
     </nav>
     <router-outlet></router-outlet>
   `,
