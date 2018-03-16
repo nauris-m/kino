@@ -1,0 +1,44 @@
+<div>
+
+  <h3>Series</h3>
+  <input #serieBox id="movie-box" (keyup.enter)="search(serieBox.value)" value="walking dead"/>
+  <button (click)="search(serieBox.value)">lookup</button>
+
+  <div>
+    <div *ngFor="let serie of searchResults">
+      <div class="series-box">
+        <h4>{{serie.name}}</h4>
+        <p>{{serie.overview}}</p>
+        <img src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}">
+        <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
+        <br>
+        <button (click)="getSeasons(serie.id)">get seasons</button>
+      </div>
+    </div>
+
+    <div style="clear:both;">
+      <h3>Episodes {{selectedSerie}}</h3>
+      <div *ngFor="let season of seasonResults">
+        <div class="series-box">
+          <h4>{{season.name}}</h4>
+          <img src="http://image.tmdb.org/t/p/w92//{{season.poster_path}}">
+          <br>
+          <button (click)="getEpisodes(season.season_number)">getEpisodes</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="clear:both;">
+      <h3>Series {{selectedSerie}}</h3>
+      <ul *ngFor="let episode of episodeResults">
+        <li>
+          <span style="font-weight: bold;">{{episode.name}}</span>
+          <span [style.color]="getDateColor(episode.air_date)">{{episode.air_date}}</span>
+          <span>{{episode.overview}}</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>

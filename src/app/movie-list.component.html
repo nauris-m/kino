@@ -1,0 +1,28 @@
+<div>
+
+  <h3>Movies</h3>
+  <input #movieBox id="movie-box" (keyup.enter)="search(movieBox.value)" value="matrix re"/>
+  <button (click)="search(movieBox.value)">lookup</button>
+
+  <div>
+    <div *ngFor="let movie of searchResults">
+      <div class="series-box">
+        <h4>{{movie.title}}</h4>
+        <p>{{movie.overview}}</p>
+        <img src="http://image.tmdb.org/t/p/w92//{{movie.poster_path}}">
+        <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
+        <br>
+        <button (click)="getMovie(movie.id)">get details</button>
+      </div>
+    </div>
+
+    <div style="clear:both;">
+      <br>
+      <hr>
+      <!--<pre>title: {{ movieResults | json }}</pre>-->
+      <pre>title: {{ movieResults.title }}</pre>
+      <pre>tagline: {{ movieResults.tagline }}</pre>
+    </div>
+  </div>
+
+</div>
