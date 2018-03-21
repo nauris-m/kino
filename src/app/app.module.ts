@@ -20,7 +20,7 @@ import {SeriesService} from './series.service';
 import {MovieService} from './movie.service';
 import {MovieListComponent} from './movie-list.component';
 
-import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule} from '@angular/material';
+import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatIconModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -33,7 +33,8 @@ import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule} from
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule
   ],
   declarations: [
     AppComponent,

@@ -5,7 +5,7 @@
   <button mat-raised-button color="primary" (click)="search(serieBox.value)">Lookup</button>
 
   <div>
-    <div *ngFor="let serie of searchResults">
+    <div *ngFor="let serie of searchResults" style="margin-top: 10px">
       <mat-card class="example-card" ngClass="serieCard">
         <h4>{{serie.name}}</h4>
         <p>{{ (serie.overview.length>100)? (serie.overview | slice:0:100)+'...':(serie.overview)}}</p>
@@ -13,6 +13,7 @@
         <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
         <br>
         <button mat-raised-button color="primary" (click)="getSeasons(serie.id)">Get Seasons</button>
+        <mat-icon aria-label="add favorite" color="accent">favorite</mat-icon>
       </mat-card>
     </div>
 
