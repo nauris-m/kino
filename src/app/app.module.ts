@@ -20,6 +20,8 @@ import {SeriesService} from './series.service';
 import {MovieService} from './movie.service';
 import {MovieListComponent} from './movie-list.component';
 
+import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule} from '@angular/material';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -27,7 +29,11 @@ import {MovieListComponent} from './movie-list.component';
     AppRoutingModule,
     HttpModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 600}),
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule
   ],
   declarations: [
     AppComponent,

@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class MovieService {
 
   private apiUrl = 'https://api.themoviedb.org/3/';
-  private apiKey = 'api_key=###';
+  private apiKey = 'api_key=a3daa830565e5ab5557cf7fd3d125';
 
   constructor(private http: Http) {
   }

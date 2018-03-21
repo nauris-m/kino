@@ -2,29 +2,29 @@
 
   <h3>Series</h3>
   <input #serieBox id="movie-box" (keyup.enter)="search(serieBox.value)" value="gotham"/>
-  <button (click)="search(serieBox.value)">lookup</button>
+  <button mat-raised-button color="primary" (click)="search(serieBox.value)">Lookup</button>
 
   <div>
     <div *ngFor="let serie of searchResults">
-      <div class="series-box">
+      <mat-card class="example-card" ngClass="serieCard">
         <h4>{{serie.name}}</h4>
         <p>{{ (serie.overview.length>100)? (serie.overview | slice:0:100)+'...':(serie.overview)}}</p>
         <img class="poster" src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}">
         <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
         <br>
-        <button (click)="getSeasons(serie.id)">get seasons</button>
-      </div>
+        <button mat-raised-button color="primary" (click)="getSeasons(serie.id)">Get Seasons</button>
+      </mat-card>
     </div>
 
     <div style="clear:both;">
       <h3 title="for: {{selectedSerie}}">Seasons (Total: {{ seasonResults?.length }} seasons)</h3>
       <div *ngFor="let season of seasonResults">
-        <div class="series-box">
+        <mat-card class="example-card" ngClass="seasonCard">
           <h4>{{season.name}}</h4>
           <img src="http://image.tmdb.org/t/p/w92//{{season.poster_path}}">
           <br>
-          <button (click)="getEpisodes(season.season_number)">getEpisodes</button>
-        </div>
+          <button mat-raised-button color="primary" (click)="getEpisodes(season.season_number)">getEpisodes</button>
+        </mat-card>
       </div>
     </div>
 
@@ -35,6 +35,7 @@
           <span style="font-weight: bold;">{{episode.name}}</span>
           <span [style.color]="getDateColor(episode.air_date)">{{episode.air_date}}</span>
           <span>{{episode.overview}}</span>
+          <mat-divider></mat-divider>
         </li>
       </ul>
     </div>

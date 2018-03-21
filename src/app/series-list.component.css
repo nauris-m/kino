@@ -1,98 +1,15 @@
-.series-box {
-  border: solid 1px #ccc;
-  border-radius: 5px;
-  background-color: #fefefe;
-  box-shadow: 2px 2px #f5f5f5;
-  display: inline-block;
+.serieCard {
   float: left;
   width: 200px;
   min-height: 350px;
-  padding: 10px;
-  margin: 5px 5px 5px 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.poster {
-  border: solid 1px #ccc;
-  min-height: 132px;
-  min-width: 92px;
-}
-
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
-}
-
-.heroes {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
-}
-
-.heroes li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .5em;
-  height: 1.6em;
-  border-radius: 4px;
-}
-
-.heroes li:hover {
-  background-color: #DDD;
-  left: .1em;
-}
-
-.heroes li.selected:hover {
-  /*background-color: #BBD8DC !important;*/
-  color: white;
-}
-
-.heroes .text {
-  position: relative;
-  top: -3px;
-}
-
-.heroes .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-
-button {
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #cfd8dc;
-}
-
-.error {
-  color: red;
-}
-
-button.delete-button {
-  float: right;
-  background-color: gray !important;
-  background-color: rgb(216, 59, 1) !important;
-  color: white;
-}
-
-img {
-  opacity: 0.2;
+.seasonCard {
+  float: left;
+  width: 200px;
+  min-height: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }

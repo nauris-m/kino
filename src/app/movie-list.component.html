@@ -2,18 +2,18 @@
 
   <h3>Movies</h3>
   <input #movieBox id="movie-box" (keyup.enter)="search(movieBox.value)" value="matrix"/>
-  <button (click)="search(movieBox.value)">lookup</button>
+  <button mat-raised-button color="primary" (click)="search(movieBox.value)">Lookup</button>
 
   <div>
-    <div *ngFor="let movie of searchResults">
-      <div class="series-box">
+    <div *ngFor="let movie of searchResults" style="margin-top: 10px">
+      <mat-card class="example-card" ngClass="movieCard">
         <h4>{{movie.title}}</h4>
         <p>{{ (movie.overview.length>100)? (movie.overview | slice:0:100)+'...':(movie.overview)}}</p>
         <img class="poster" src="http://image.tmdb.org/t/p/w92//{{movie.poster_path}}">
         <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
         <br>
-        <button (click)="getMovie(movie.id)">get details</button>
-      </div>
+        <button mat-raised-button color="primary" (click)="getMovie(movie.id)">Get Details</button>
+      </mat-card>
     </div>
 
     <div style="clear:both;">
