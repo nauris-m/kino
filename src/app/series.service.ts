@@ -15,18 +15,7 @@ export class SeriesService {
   constructor(private http: Http) {
   }
 
-  getMovie(id: number): Promise<any> {
-    const url = `${this.apiUrl}movie/${id}?${this.apiKey}`;
-    return this.http
-      .get(url)
-      .toPromise()
-      .then((response) => {
-        return response.json() as any;
-      })
-      .catch(this.handleError);
-  }
-
-  searchMovies(name: string): Promise<any> {
+  searchSeries(name: string): Promise<any> {
     const url = `${this.apiUrl}search/tv?query=${name}&${this.apiKey}`;
     return this.http
       .get(url)

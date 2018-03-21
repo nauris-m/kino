@@ -25,15 +25,15 @@ export class SeriesListComponent implements OnInit {
         this.tag = movie.tagline;
       });*/
 
-    /*this.seriesService.searchMovies('gotham')
+    /*this.seriesService.searchSeries('gotham')
       .then(search => {
-        console.log('searchMovies:', search.results);
+        console.log('searchSeries:', search.results);
         this.searchResults = search.results;
       });*/
   }
 
   search(term: string): void {
-    this.seriesService.searchMovies(term)
+    this.seriesService.searchSeries(term)
       .then(search => {
         // console.log('list:', search.results);
         this.searchResults = search.results;
