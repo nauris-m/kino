@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from './movie.service';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {CourseDialogComponent} from './course-dialog.component';
 
 @Component({
   selector: 'my-movie-list',
@@ -11,10 +13,21 @@ export class MovieListComponent implements OnInit {
   searchResults: any;
   movieResults: any = {};
 
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    /*dialogConfig.position = {
+      'top': '0',
+      'left': '0'
+    };*/
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(CourseDialogComponent, dialogConfig);
   }
 
   search(term: string): void {

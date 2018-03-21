@@ -20,7 +20,9 @@ import {SeriesService} from './series.service';
 import {MovieService} from './movie.service';
 import {MovieListComponent} from './movie-list.component';
 
-import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatIconModule, MatDialogModule} from '@angular/material';
+import {CourseDialogComponent} from './course-dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -30,11 +32,13 @@ import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatI
     HttpModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 600}),
     InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
@@ -43,10 +47,12 @@ import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatI
     HeroesComponent,
     HeroDetailComponent,
     SeriesListComponent,
-    MovieListComponent
+    MovieListComponent,
+    CourseDialogComponent
   ],
   providers: [HeroService, SeriesService, MovieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CourseDialogComponent]
 })
 
 export class AppModule {
