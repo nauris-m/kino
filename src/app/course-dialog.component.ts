@@ -8,10 +8,15 @@ import {Component, Inject, OnInit} from '@angular/core';
 })
 export class CourseDialogComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<CourseDialogComponent>) {
+  movieData: any;
+
+  constructor(private dialogRef: MatDialogRef<CourseDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {
+    // console.log(this.data.dataKey);
+    this.movieData = this.data.dataKey;
   }
 
   save() {

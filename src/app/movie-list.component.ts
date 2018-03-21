@@ -19,15 +19,19 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog() {
+  openDialog(id: number) {
     const dialogConfig = new MatDialogConfig();
-    /*dialogConfig.position = {
-      'top': '0',
-      'left': '0'
-    };*/
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    this.dialog.open(CourseDialogComponent, dialogConfig);
+    // console.log(id);
+    this.movieService.getMovie(id).then(search => {
+      // console.log('getMovie:', search);
+      // this.movieData = search;
+      dialogConfig.data = {
+        dataKey: search
+      };
+      this.dialog.open(CourseDialogComponent, dialogConfig);
+    });
   }
 
   search(term: string): void {

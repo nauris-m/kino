@@ -7,30 +7,20 @@
   <div>
     <div *ngFor="let movie of searchResults" style="margin-top: 10px">
       <mat-card class="example-card" ngClass="movieCard">
-          <!--<img class="poster" src="http://image.tmdb.org/t/p/w92//{{movie.poster_path}}">-->
-          <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
-          <mat-card-header>
-            <mat-card-title>{{movie.title}}</mat-card-title>
-            <mat-card-subtitle>{{movie.release_date}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" alt="cover">
-          <mat-card-content>
-            <p>{{ (movie.overview.length>100)? (movie.overview | slice:0:100)+'...':(movie.overview)}}</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="getMovie(movie.id)">Get Details</button>
-            <mat-icon aria-label="add favorite" color="warn" (click)="openDialog()">favorite</mat-icon>
-          </mat-card-actions>
+        <!--<img class="poster" src="http://image.tmdb.org/t/p/w92//{{movie.poster_path}}">-->
+        <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
+        <mat-card-header>
+          <mat-card-title>{{movie.title}}</mat-card-title>
+          <mat-card-subtitle>{{movie.release_date}}</mat-card-subtitle>
+        </mat-card-header>
+        <img src="http://image.tmdb.org/t/p/w92//{{movie.poster_path}}" alt="cover">
+        <mat-card-content>
+          <p>{{ (movie.overview.length>100)? (movie.overview | slice:0:100)+'...':(movie.overview)}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="openDialog(movie.id)">Get Details</button>
+        </mat-card-actions>
       </mat-card>
-    </div>
-
-    <div style="clear:both;">
-      <br>
-      <h3>Details</h3>
-      <hr>
-      <!--<pre>title: {{ movieResults | json }}</pre>-->
-      <pre>title: {{ movieResults.title }}</pre>
-      <pre>tagline: {{ movieResults.tagline }}</pre>
     </div>
   </div>
 

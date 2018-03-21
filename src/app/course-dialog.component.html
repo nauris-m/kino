@@ -1,1 +1,41 @@
-<p>TODO: Dialog template.</p>
+<!--<p>TODO: Dialog template. {{movieData | json}}</p>-->
+<mat-list>
+  <mat-list-item>
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line>Title: {{movieData.title}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line>Tagline: {{movieData.tagline}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line>Status: {{movieData.status}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line>Overview: {{movieData.overview}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line>Homepage: {{movieData.homepage}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line>Popularity: {{movieData.popularity}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-chip-list>
+      <p mat-line>Genres: </p>
+      <mat-chip *ngFor="let chip of movieData.genres">
+        {{chip.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-list-item>
+</mat-list>

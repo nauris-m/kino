@@ -20,7 +20,10 @@ import {SeriesService} from './series.service';
 import {MovieService} from './movie.service';
 import {MovieListComponent} from './movie-list.component';
 
-import {MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatIconModule, MatDialogModule} from '@angular/material';
+import {
+  MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatIconModule,
+  MatDialogModule, MatFormFieldModule, MatListModule, MatChipsModule
+} from '@angular/material';
 import {CourseDialogComponent} from './course-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -38,7 +41,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatCardModule,
     MatDividerModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatChipsModule
   ],
   declarations: [
     AppComponent,

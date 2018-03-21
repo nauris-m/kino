@@ -3,8 +3,14 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'my-root',
   template: `
-    <h3>{{title}}</h3>
-    <div class="header-bar"></div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>{{title}}</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon">info</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <br>
     <nav>
       <!--<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>-->
       <!--<a routerLink="/heroes" routerLinkActive="active">Heroes</a>-->
@@ -15,6 +21,7 @@ import {Component} from '@angular/core';
   `,
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'kinema';
 }
