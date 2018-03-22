@@ -11,7 +11,7 @@ export class SeriesService {
   // https://api.themoviedb.org/3/movie/603?api_key=###
 
   private apiUrl = 'https://api.themoviedb.org/3/';
-  private apiKey = 'api_key=' + environment.apiKey;
+  private apiKey = 'api_key=' + environment.API_KEY;
 
   constructor(private http: Http) {
   }

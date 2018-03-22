@@ -25,5 +25,5 @@ import {environment} from '../environments/environment';
 export class AppComponent {
   title = 'kinema';
   env = environment.envName;
-  apikey = environment.apiKey;
+  apikey = environment.API_KEY;
 }
