@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   envName: 'dev',
-  apiKey: '###'
+  API_KEY: '###'
 };
