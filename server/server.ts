@@ -1,12 +1,27 @@
-import * as express from 'express';
-import {Application} from 'express';
-import {getAllDummyData} from './get-data.route';
+// Get dependencies
+const express = require('express');
+const path = require('path');
+const http = require('http');
+const bodyParser = require('body-parser');
 
-const app: Application = express();
+// Get our API routes
+// const api = require('./server/routes/api');
 
-app.route('/api').get(getAllDummyData);
+const app = express();
 
-const httpServer = app.listen(9000, () => {
-  console.log('HTTP REST API Server running at http://localhost:' + httpServer.address().port);
-  console.log(process.env.API_KEY);
+// Parsers for POST data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+// Point static path to dist
+app.use(express.static(path.join(__dirname, '../dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
+
+const port = process.env.PORT || '3000';
+app.set('port', port);
+
+const server = http.createServer(app);
+server.listen(port, () => console.log(`API running on localhost:${port}`));
