@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
+import {environment} from '../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -10,7 +11,7 @@ export class SeriesService {
   // https://api.themoviedb.org/3/movie/603?api_key=###
 
   private apiUrl = 'https://api.themoviedb.org/3/';
-  private apiKey = 'api_key=a3daa830565e5ab5557cf7fd3d125';
+  private apiKey = 'api_key=' + environment.apiKey;
 
   constructor(private http: Http) {
   }

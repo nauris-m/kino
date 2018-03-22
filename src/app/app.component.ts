@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'my-root',
   template: `
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <span>{{title}}</span>
+        <span>{{title}} ({{env}}) {{apikey}}</span>
         <span class="example-spacer"></span>
-        <mat-icon class="example-icon">info</mat-icon>
       </mat-toolbar-row>
     </mat-toolbar>
     <br>
@@ -24,4 +24,6 @@ import {Component} from '@angular/core';
 
 export class AppComponent {
   title = 'kinema';
+  env = environment.envName;
+  apikey = environment.apiKey;
 }
