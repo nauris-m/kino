@@ -3,6 +3,7 @@ import {SeriesService} from './series.service';
 import * as moment from 'moment'
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'my-series-list',
@@ -57,11 +58,11 @@ export class SeriesListComponent implements OnInit {
     if (allEntries.indexOf(id) === -1) {
       allEntries.push(id);
       localStorage.setItem('tv-series', JSON.stringify(allEntries));
-      this.snackBar.open('added successfully..', '', {
+      this.snackBar.open('Favourite Added..', '', {
         duration: 2000,
       })
     } else {
-      this.snackBar.open('already there..', '', {
+      this.snackBar.open('Favourite Already Exists..', '', {
         duration: 2000,
       })
     }
@@ -69,19 +70,10 @@ export class SeriesListComponent implements OnInit {
 
   removeFavorite(id: number, event: any): void {
     event.stopPropagation();
-    /*const allEntries = JSON.parse(localStorage.getItem('tv-series')) || [];
-    if (allEntries.indexOf(id) === -1) {
-      allEntries.push(id);
-      localStorage.setItem('tv-series', JSON.stringify(allEntries));
-      this.snackBar.open('added successfully..', '', {
-        duration: 2000,
-      })
-    } else {
-      this.snackBar.open('already there..', '', {
-        duration: 2000,
-      })
-    }*/
-    this.snackBar.open('remove (todo)..', '', {
+    const allEntries = JSON.parse(localStorage.getItem('tv-series')) || [];
+    const pulled = _.pull(allEntries, id);
+    localStorage.setItem('tv-series', JSON.stringify(pulled));
+    this.snackBar.open('Favourite Removed..', '', {
       duration: 2000,
     })
   }
