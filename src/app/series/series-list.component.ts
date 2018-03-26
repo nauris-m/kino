@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SeriesService} from './series.service';
 import * as moment from 'moment'
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'my-series-list',
@@ -15,7 +16,7 @@ export class SeriesListComponent implements OnInit {
   seasonResults: any;
   episodeResults: any[];
 
-  constructor(private seriesService: SeriesService, private router: Router) {
+  constructor(private seriesService: SeriesService, private router: Router, public snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -50,6 +51,41 @@ export class SeriesListComponent implements OnInit {
       });
   }
 
+  saveFavorite(id: number, event: any): void {
+    event.stopPropagation();
+    const allEntries = JSON.parse(localStorage.getItem('tv-series')) || [];
+    if (allEntries.indexOf(id) === -1) {
+      allEntries.push(id);
+      localStorage.setItem('tv-series', JSON.stringify(allEntries));
+      this.snackBar.open('added successfully..', '', {
+        duration: 2000,
+      })
+    } else {
+      this.snackBar.open('already there..', '', {
+        duration: 2000,
+      })
+    }
+  }
+
+  removeFavorite(id: number, event: any): void {
+    event.stopPropagation();
+    /*const allEntries = JSON.parse(localStorage.getItem('tv-series')) || [];
+    if (allEntries.indexOf(id) === -1) {
+      allEntries.push(id);
+      localStorage.setItem('tv-series', JSON.stringify(allEntries));
+      this.snackBar.open('added successfully..', '', {
+        duration: 2000,
+      })
+    } else {
+      this.snackBar.open('already there..', '', {
+        duration: 2000,
+      })
+    }*/
+    this.snackBar.open('remove (todo)..', '', {
+      duration: 2000,
+    })
+  }
+
   getEpisodes(seasonNum: number): void {
     this.seriesService.getEpisodes(this.selectedSerie, seasonNum)
       .then(search => {
@@ -64,5 +100,10 @@ export class SeriesListComponent implements OnInit {
     } else {
       return 'green';
     }
+  }
+
+  isStored(id: number): boolean {
+    const allEntries = JSON.parse(localStorage.getItem('tv-series')) || [];
+    return !(allEntries.indexOf(id) === -1);
   }
 }

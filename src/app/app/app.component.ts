@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {environment} from '../environments/environment';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'my-root',
@@ -17,6 +17,7 @@ import {environment} from '../environments/environment';
       <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/movies">Movies</button>
       <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/series">Series</button>
     </nav>
+    <my-hero-search></my-hero-search>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css']

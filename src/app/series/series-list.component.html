@@ -13,7 +13,8 @@
         <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
         <br>
         <button mat-raised-button color="primary" (click)="getSeasons(serie.id)">Get Seasons</button>
-        <mat-icon aria-label="add favorite" color="accent">favorite</mat-icon>
+        <mat-icon aria-label="add favorite" color="accent" (click)="removeFavorite(serie.id, $event)" *ngIf="isStored(serie.id)">favorite</mat-icon>
+        <mat-icon aria-label="remove favorite" color="primary" (click)="saveFavorite(serie.id, $event)" *ngIf="!isStored(serie.id)">favorite</mat-icon>
       </mat-card>
     </div>
 
