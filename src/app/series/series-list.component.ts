@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SeriesService} from './series.service';
 import * as moment from 'moment'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'my-series-list',
@@ -14,7 +15,7 @@ export class SeriesListComponent implements OnInit {
   seasonResults: any;
   episodeResults: any[];
 
-  constructor(private seriesService: SeriesService) {
+  constructor(private seriesService: SeriesService, private router: Router) {
   }
 
   ngOnInit(): void {

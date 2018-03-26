@@ -3,8 +3,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 
 @Component({
   selector: 'my-course-dialog',
-  templateUrl: './course-dialog.component.html',
-  styleUrls: ['./course-dialog.component.css']
+  templateUrl: './details-dialog.component.html',
+  styleUrls: ['./details-dialog.component.css']
 })
 export class CourseDialogComponent implements OnInit {
 

@@ -9,22 +9,21 @@ import {InMemoryDataService} from './in-memory-data.service';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
-import {DashboardComponent} from './dashboard.component';
 import {HeroesComponent} from './heroes.component';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroSearchComponent} from './hero-search.component';
-import {SeriesListComponent} from './series-list.component';
+import {SeriesListComponent} from './series/series-list.component';
 
 import {HeroService} from './hero.service';
-import {SeriesService} from './series.service';
-import {MovieService} from './movie.service';
-import {MovieListComponent} from './movie-list.component';
+import {SeriesService} from './series/series.service';
+import {MovieService} from './movies/movie.service';
+import {MovieListComponent} from './movies/movie-list.component';
 
 import {
   MatButtonModule, MatToolbarModule, MatCardModule, MatDividerModule, MatIconModule,
   MatDialogModule, MatFormFieldModule, MatListModule, MatChipsModule
 } from '@angular/material';
-import {CourseDialogComponent} from './course-dialog.component';
+import {CourseDialogComponent} from './movies-dialog/details-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -48,7 +47,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
     HeroSearchComponent,
     HeroesComponent,
     HeroDetailComponent,

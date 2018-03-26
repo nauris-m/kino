@@ -3,6 +3,7 @@
   <h3>Movies</h3>
   <input #movieBox id="movie-box" (keyup.enter)="search(movieBox.value)" value="matrix"/>
   <button mat-raised-button color="primary" (click)="search(movieBox.value)">Lookup</button>
+  <button mat-raised-button color="primary" (click)="gotoSeries()">_Series</button>
 
   <div>
     <div *ngFor="let movie of searchResults" style="margin-top: 10px">

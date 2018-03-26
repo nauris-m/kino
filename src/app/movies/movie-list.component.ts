@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from './movie.service';
 import {MatDialog, MatDialogConfig} from '@angular/material';
-import {CourseDialogComponent} from './course-dialog.component';
+import {CourseDialogComponent} from '../movies-dialog/details-dialog.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'my-movie-list',
@@ -13,7 +14,7 @@ export class MovieListComponent implements OnInit {
   searchResults: any;
   movieResults: any = {};
 
-  constructor(private movieService: MovieService, private dialog: MatDialog) {
+  constructor(private movieService: MovieService, private dialog: MatDialog, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -48,5 +49,10 @@ export class MovieListComponent implements OnInit {
         console.log('getMovie:', search);
         this.movieResults = search;
       });
+  }
+
+  gotoSeries(): void {
+    const link = ['/series'];
+    this.router.navigate(link);
   }
 }
