@@ -25,6 +25,8 @@ import {
 } from '@angular/material';
 import {CourseDialogComponent} from '../movies-dialog/details-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ChartModule} from 'angular-highcharts';
+import {ChartComponent} from '../chart/chart.component';
 
 @NgModule({
   imports: [
@@ -44,7 +46,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatListModule,
     MatChipsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ChartModule
   ],
   declarations: [
     AppComponent,
@@ -53,7 +56,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HeroDetailComponent,
     SeriesListComponent,
     MovieListComponent,
-    CourseDialogComponent
+    CourseDialogComponent,
+    ChartComponent
   ],
   providers: [HeroService, SeriesService, MovieService],
   bootstrap: [AppComponent],
