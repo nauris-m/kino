@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryWebApiModule, InMemoryBackendConfigArgs} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from '../in-memory-data.service';
 
 import {AppComponent} from './app.component';
@@ -25,8 +25,6 @@ import {
 } from '@angular/material';
 import {CourseDialogComponent} from '../movies-dialog/details-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ChartModule} from 'angular-highcharts';
-import {ChartComponent} from '../chart/chart.component';
 
 @NgModule({
   imports: [
@@ -35,7 +33,7 @@ import {ChartComponent} from '../chart/chart.component';
     AppRoutingModule,
     HttpModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 600}),
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, <InMemoryBackendConfigArgs>{passThruUnknownUrl: true}),
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
@@ -47,7 +45,6 @@ import {ChartComponent} from '../chart/chart.component';
     MatListModule,
     MatChipsModule,
     MatSnackBarModule,
-    ChartModule
   ],
   declarations: [
     AppComponent,
@@ -57,7 +54,6 @@ import {ChartComponent} from '../chart/chart.component';
     SeriesListComponent,
     MovieListComponent,
     CourseDialogComponent,
-    ChartComponent
   ],
   providers: [HeroService, SeriesService, MovieService],
   bootstrap: [AppComponent],

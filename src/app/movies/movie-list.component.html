@@ -5,9 +5,6 @@
   <button mat-raised-button color="primary" (click)="search(movieBox.value)">Lookup</button>
   <button mat-raised-button color="primary" (click)="gotoSeries()">_Series</button>
 
-  <my-chart initial="[100,200,50,300]"></my-chart>
-  <my-chart initial="[10,20,5,30]"></my-chart>
-
   <div>
     <div *ngFor="let movie of searchResults" style="margin-top: 10px">
       <mat-card class="example-card" ngClass="movieCard">
