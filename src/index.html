@@ -8,9 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-<my-root></my-root>
+
+<div class="ui-g header-section">
+  <div class="ui-g-12"><my-header-section></my-header-section></div>
+</div>
+
+<div class="ui-g">
+  <div class="ui-g-2 left-section"><my-left-menu></my-left-menu></div>
+  <div class="ui-g-8 center-section"><my-root></my-root></div>
+  <div class="ui-g-2 right-section">[extras]</div>
+</div>
+
 </body>
 </html>

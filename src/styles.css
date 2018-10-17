@@ -10,3 +10,20 @@ body {
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
 }
+
+.header-section {
+  background: #2f365f;
+  color: #fff;
+}
+
+.left-section, .center-section {
+  background-color: rgb(241, 245, 248);
+}
+
+.right-section {
+  background-color: rgb(234, 241, 247);
+}
+
+.ui-g > div {
+  border-right: solid 1px white;
+}

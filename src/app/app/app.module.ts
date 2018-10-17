@@ -25,6 +25,12 @@ import {
 } from '@angular/material';
 import {CourseDialogComponent} from '../movies-dialog/details-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
+import {ListboxModule} from 'primeng/listbox';
+import {HeaderSectionComponent} from '../header-section/header-section.component';
+import {LeftMenuComponent} from '../left-menu/left-menu.component';
+import {SlideMenuModule} from 'primeng/primeng';
+import {MenuModule} from 'primeng/menu';
 
 @NgModule({
   imports: [
@@ -45,6 +51,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatListModule,
     MatChipsModule,
     MatSnackBarModule,
+    ButtonModule,
+    ListboxModule,
+    MenuModule
   ],
   declarations: [
     AppComponent,
@@ -54,9 +63,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SeriesListComponent,
     MovieListComponent,
     CourseDialogComponent,
+    HeaderSectionComponent,
+    LeftMenuComponent
   ],
   providers: [HeroService, SeriesService, MovieService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, HeaderSectionComponent, LeftMenuComponent],
   entryComponents: [CourseDialogComponent]
 })
 

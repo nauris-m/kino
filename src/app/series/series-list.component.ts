@@ -4,6 +4,7 @@ import * as moment from 'moment'
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import * as _ from 'lodash';
+import {Cities} from '../hero';
 
 @Component({
   selector: 'my-series-list',
@@ -16,8 +17,18 @@ export class SeriesListComponent implements OnInit {
   searchResults: any;
   seasonResults: any;
   episodeResults: any[];
+  cities1: Cities[];
+  selectedCity1: Cities;
 
   constructor(private seriesService: SeriesService, private router: Router, public snackBar: MatSnackBar) {
+    this.cities1 = [
+      {label: 'Select City', value: null},
+      {label: 'New York', value: 1},
+      {label: 'Rome', value: 2},
+      {label: 'London', value: 3},
+      {label: 'Istanbul', value: 4},
+      {label: 'Paris', value: 5}
+    ];
   }
 
   ngOnInit(): void {

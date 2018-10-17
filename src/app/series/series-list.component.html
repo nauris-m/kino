@@ -2,7 +2,11 @@
 
   <h3>Series</h3>
   <input #serieBox id="movie-box" (keyup.enter)="search(serieBox.value)" value="gotham"/>
-  <button mat-raised-button color="primary" (click)="search(serieBox.value)">Lookup</button>
+  <!--<button mat-raised-button color="primary" (click)="search(serieBox.value)">Lookup</button>-->
+  <button pButton type="button" label="Lookup" (click)="search(serieBox.value)"></button>
+
+  <!--<p-listbox [options]="cities1" [(ngModel)]="selectedCity1"></p-listbox>
+  <span>{{ selectedCity1 }}</span>-->
 
   <div>
     <div *ngFor="let serie of searchResults" style="margin-top: 10px">
