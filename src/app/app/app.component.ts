@@ -6,8 +6,8 @@ import {Component} from '@angular/core';
     <nav>
       <!--<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>-->
       <!--<a routerLink="/heroes" routerLinkActive="active">Heroes</a>-->
-      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/movies">Movies</button>
-      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/series">Series</button>
+      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/series">Search Series</button>
+      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/movies">Search Movies</button>
     </nav>
     <!--<my-hero-search></my-hero-search>-->
     <router-outlet></router-outlet>

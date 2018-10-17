@@ -1,8 +1,7 @@
 <div>
 
   <h3>Movies</h3>
-  <input #movieBox id="movie-box" (keyup.enter)="search(movieBox.value)" value="matrix"/>
-  <!--<button mat-raised-button color="primary" (click)="search(movieBox.value)">Lookup</button>-->
+  <input #movieBox type="text" pInputText value="matrix" (keyup.enter)="search(movieBox.value)"/>
   <button pButton type="button" label="Lookup" (click)="search(movieBox.value)"></button>
   <!--<button mat-raised-button color="primary" (click)="gotoSeries()">_Series</button>-->
 

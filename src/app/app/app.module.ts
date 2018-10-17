@@ -29,7 +29,7 @@ import {ButtonModule} from 'primeng/button';
 import {ListboxModule} from 'primeng/listbox';
 import {HeaderSectionComponent} from '../header-section/header-section.component';
 import {LeftMenuComponent} from '../left-menu/left-menu.component';
-import {SlideMenuModule} from 'primeng/primeng';
+import {InputTextModule} from 'primeng/primeng';
 import {MenuModule} from 'primeng/menu';
 
 @NgModule({
@@ -53,7 +53,8 @@ import {MenuModule} from 'primeng/menu';
     MatSnackBarModule,
     ButtonModule,
     ListboxModule,
-    MenuModule
+    MenuModule,
+    InputTextModule
   ],
   declarations: [
     AppComponent,

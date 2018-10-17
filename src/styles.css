@@ -9,6 +9,11 @@ body {
   font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
+  background-color: #f1f5f8;
+}
+
+.content-section {
+  height: 100vh;
 }
 
 .header-section {
@@ -17,11 +22,11 @@ body {
 }
 
 .left-section, .center-section {
-  background-color: rgb(241, 245, 248);
+  background-color: #f1f5f8;
 }
 
 .right-section {
-  background-color: rgb(234, 241, 247);
+  background-color: #eaf1f7;
 }
 
 .ui-g > div {
