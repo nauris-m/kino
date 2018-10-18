@@ -1,8 +1,9 @@
 .serieCard {
   float: left;
-  width: 320px;
+  /*width: 320px;*/
   margin-right: 10px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .seasonCard {

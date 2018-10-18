@@ -17,27 +17,15 @@ export class SeriesListComponent implements OnInit {
   searchResults: any;
   seasonResults: any;
   episodeResults: any[];
-  cities1: Cities[];
   display: boolean;
   overview: string;
   name: string;
+  theSerie: any;
+  allGenres: any;
+  currentGenres: string[];
 
   constructor(private seriesService: SeriesService, private router: Router, public snackBar: MatSnackBar) {
     this.display = false;
-    this.cities1 = [
-      {label: 'Select City', value: null},
-      {label: 'New York', value: 1},
-      {label: 'Rome', value: 2},
-      {label: 'London', value: 3},
-      {label: 'Istanbul', value: 4},
-      {label: 'Paris', value: 5}
-    ];
-  }
-
-  showDialog(overview: string, name: string) {
-    this.overview = overview;
-    this.name = name;
-    this.display = true;
   }
 
   ngOnInit(): void {
@@ -53,6 +41,23 @@ export class SeriesListComponent implements OnInit {
         console.log('searchSeries:', search.results);
         this.searchResults = search.results;
       });*/
+    this.seriesService.getGenres()
+      .then(result => {
+        // console.log('list:', result.genres);
+        this.allGenres = result.genres;
+      });
+  }
+
+  showDialog(theSerie: any) {
+    this.theSerie = theSerie;
+    const serieGenres = this.theSerie.genre_ids;
+    const foundGenres = _.map(this.allGenres, function (o) {
+      if (serieGenres.indexOf(o.id) !== -1) {
+        return o.name
+      }
+    });
+    this.currentGenres = _.compact(foundGenres);
+    this.display = true;
   }
 
   search(term: string): void {

@@ -16,6 +16,17 @@ export class SeriesService {
   constructor(private http: Http) {
   }
 
+  getGenres(): Promise<any> {
+    const url = `${this.apiUrl}genre/movie/list?${this.apiKey}&language=en-US`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then((response) => {
+        return response.json() as any;
+      })
+      .catch(this.handleError);
+  }
+
   searchSeries(name: string): Promise<any> {
     const url = `${this.apiUrl}search/tv?query=${name}&${this.apiKey}`;
     return this.http
