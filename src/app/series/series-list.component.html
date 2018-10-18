@@ -4,22 +4,35 @@
   <input #serieBox type="text" pInputText value="breaking" (keyup.enter)="search(serieBox.value)"/>
   <button pButton type="button" label="Lookup" (click)="search(serieBox.value)"></button>
 
+  <p-dialog header="Description" [(visible)]="display" [width]="500">
+    <strong>{{name}}</strong>
+    <p>{{overview}}</p>
+  </p-dialog>
+
   <!--<p-listbox [options]="cities1" [(ngModel)]="selectedCity1"></p-listbox>
   <span>{{ selectedCity1 }}</span>-->
 
   <div>
-    <div *ngFor="let serie of searchResults" style="margin-top: 10px">
-      <mat-card class="example-card" ngClass="serieCard">
-        <h4>{{serie.name}}</h4>
-        <p>{{ (serie.overview.length>100)? (serie.overview | slice:0:100)+'...':(serie.overview)}}</p>
-        <img class="poster" src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}">
-        <!--<img src="https://image.tmdb.org/t/p/w1400_and_h450_face/{{movie.backdrop_path}}" width="100">-->
-        <br>
-        <button mat-raised-button color="primary" (click)="getSeasons(serie.id)">Get Seasons</button>
-        <mat-icon aria-label="add favorite" color="accent" (click)="removeFavorite(serie.id, $event)" *ngIf="isStored(serie.id)">favorite</mat-icon>
-        <mat-icon aria-label="remove favorite" color="primary" (click)="saveFavorite(serie.id, $event)" *ngIf="!isStored(serie.id)">favorite</mat-icon>
-      </mat-card>
-    </div>
+    <p-card *ngFor="let serie of searchResults" class="serieCard">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <strong>{{ (serie.name.length>30)? (serie.name | slice:0:30)+'...':(serie.name)}}</strong>
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <img class="poster" src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}">
+          </div>
+          <div class="ui-g-6">
+            <button icon="pi pi-bars" label="Seasons" pButton type="button" (click)="getSeasons(serie.id)"></button>
+            <br>
+            <button icon="pi pi-info-circle" label="Info" type="text" (click)="showDialog(serie.overview, serie.name)" pButton></button>
+            <br>
+            <p-button icon="pi pi-star" label="Unstar" (click)="removeFavorite(serie.id, $event)" *ngIf="isStored(serie.id)"></p-button>
+            <p-button icon="pi pi-star-o" label="Star" (click)="saveFavorite(serie.id, $event)" *ngIf="!isStored(serie.id)"></p-button>
+          </div>
+        </div>
+    </p-card>
 
     <div style="clear:both;">
       <h3 title="for: {{selectedSerie}}">Seasons (Total: {{ seasonResults?.length }} seasons)</h3>

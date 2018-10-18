@@ -18,9 +18,12 @@ export class SeriesListComponent implements OnInit {
   seasonResults: any;
   episodeResults: any[];
   cities1: Cities[];
-  selectedCity1: Cities;
+  display: boolean;
+  overview: string;
+  name: string;
 
   constructor(private seriesService: SeriesService, private router: Router, public snackBar: MatSnackBar) {
+    this.display = false;
     this.cities1 = [
       {label: 'Select City', value: null},
       {label: 'New York', value: 1},
@@ -29,6 +32,12 @@ export class SeriesListComponent implements OnInit {
       {label: 'Istanbul', value: 4},
       {label: 'Paris', value: 5}
     ];
+  }
+
+  showDialog(overview: string, name: string) {
+    this.overview = overview;
+    this.name = name;
+    this.display = true;
   }
 
   ngOnInit(): void {

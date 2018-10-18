@@ -6,10 +6,10 @@ img {
 }
 
 body {
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, sans-serif;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0;
   background-color: #f1f5f8;
+  margin: 0;
 }
 
 .content-section {

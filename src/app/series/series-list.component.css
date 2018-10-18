@@ -1,7 +1,6 @@
 .serieCard {
   float: left;
-  width: 200px;
-  min-height: 350px;
+  width: 320px;
   margin-right: 10px;
   margin-bottom: 10px;
 }
@@ -11,5 +10,15 @@
   width: 200px;
   min-height: 200px;
   margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.poster {
+  width: 92px;
+  height: 138px;
+  border: dashed 1px cadetblue;
+}
+
+.serieCard button {
   margin-bottom: 10px;
 }

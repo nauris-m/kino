@@ -31,6 +31,8 @@ import {HeaderSectionComponent} from '../header-section/header-section.component
 import {LeftMenuComponent} from '../left-menu/left-menu.component';
 import {InputTextModule} from 'primeng/primeng';
 import {MenuModule} from 'primeng/menu';
+import {DialogModule} from 'primeng/dialog';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   imports: [
@@ -54,7 +56,9 @@ import {MenuModule} from 'primeng/menu';
     ButtonModule,
     ListboxModule,
     MenuModule,
-    InputTextModule
+    InputTextModule,
+    DialogModule,
+    CardModule
   ],
   declarations: [
     AppComponent,
