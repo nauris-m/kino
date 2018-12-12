@@ -7,7 +7,7 @@ import {SeriesListComponent} from '../series/series-list.component';
 import {MovieListComponent} from '../movies/movie-list.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/movies', pathMatch: 'full'},
+  {path: '', redirectTo: '/series', pathMatch: 'full'},
   {path: 'detail/:id', component: HeroDetailComponent},
   {path: 'heroes', component: HeroesComponent},
   {path: 'series', component: SeriesListComponent},

@@ -28,46 +28,23 @@
       </div>
       <div class="ui-g">
         <div class="ui-g-2">
-          <img class="poster" src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}">
+          <img class="poster" src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}" *ngIf="serie.poster_path">
+          <div class="poster" *ngIf="!serie.poster_path"></div>
         </div>
         <div class="ui-g-8">
-          <p>{{serie.overview || 'N/A'}}</p>
+          <p class="overview">{{serie.overview || 'N/A'}}</p>
         </div>
         <div class="ui-g-2">
           <button icon="pi pi-info-circle" label="Info" type="text" (click)="showDialog(serie)" pButton></button>
           <br>
           <button icon="pi pi-bars" label="Seasons" pButton type="button" (click)="getSeasons(serie.id)"></button>
+          <button icon="pi pi-info-circle" label="Details {{serie.id}}" type="text" (click)="showDetails(serie.id)" pButton></button>
           <br>
           <p-button icon="pi pi-star" label="Unstar" (click)="removeFavorite(serie.id, $event)" *ngIf="isStored(serie.id)"></p-button>
           <p-button icon="pi pi-star-o" label="Star" (click)="saveFavorite(serie.id, $event)" *ngIf="!isStored(serie.id)"></p-button>
         </div>
       </div>
     </p-card>
-
-    <div style="clear:both;">
-      <h3 title="for: {{selectedSerie}}">Seasons (Total: {{ seasonResults?.length }} seasons)</h3>
-      <div *ngFor="let season of seasonResults">
-        <mat-card class="example-card" ngClass="seasonCard">
-          <h4>{{season.name}}</h4>
-          <img src="http://image.tmdb.org/t/p/w92//{{season.poster_path}}">
-          <br>
-          <button mat-raised-button color="primary" (click)="getEpisodes(season.season_number)">getEpisodes</button>
-        </mat-card>
-      </div>
-    </div>
-
-    <div style="clear:both;">
-      <h3 title="for: {{selectedSerie}}">Episodes</h3>
-      <ul *ngFor="let episode of episodeResults">
-        <li>
-          <span style="font-weight: bold;">{{episode.name}}</span>
-          <span [style.color]="getDateColor(episode.air_date)">{{episode.air_date}}</span>
-          <span>{{episode.overview}}</span>
-          <mat-divider></mat-divider>
-        </li>
-      </ul>
-    </div>
-
   </div>
 
 </div>

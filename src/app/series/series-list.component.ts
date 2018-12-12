@@ -4,7 +4,6 @@ import * as moment from 'moment'
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import * as _ from 'lodash';
-import {Cities} from '../hero';
 
 @Component({
   selector: 'my-series-list',
@@ -60,6 +59,10 @@ export class SeriesListComponent implements OnInit {
     this.display = true;
   }
 
+  showDetails(id: number) {
+    this.router.navigateByUrl('/detail/' + id);
+  }
+
   search(term: string): void {
     this.seriesService.searchSeries(term)
       .then(search => {
@@ -101,22 +104,6 @@ export class SeriesListComponent implements OnInit {
     this.snackBar.open('Favourite Removed..', '', {
       duration: 2000,
     })
-  }
-
-  getEpisodes(seasonNum: number): void {
-    this.seriesService.getEpisodes(this.selectedSerie, seasonNum)
-      .then(search => {
-        // console.log('getEpisodes:', search);
-        this.episodeResults = search.episodes;
-      });
-  }
-
-  getDateColor(releaseDate: string) {
-    if (moment(moment(releaseDate)).isBefore(moment().format('YYYY-MM-DD'))) {
-      return 'red';
-    } else {
-      return 'green';
-    }
   }
 
   isStored(id: number): boolean {

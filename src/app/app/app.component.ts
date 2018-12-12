@@ -6,8 +6,6 @@ import {Component} from '@angular/core';
     <nav>
       <!--<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>-->
       <!--<a routerLink="/heroes" routerLinkActive="active">Heroes</a>-->
-      <button pButton type="button" routerLinkActive="active" routerLink="/series" label="Search Series"></button>
-      <button pButton type="button" routerLinkActive="active" routerLink="/movies" label="Search Movies"></button>
     </nav>
     <!--<my-hero-search></my-hero-search>-->
     <router-outlet></router-outlet>
