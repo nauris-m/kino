@@ -2,7 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 img {
-  opacity: 0.2;
+  opacity: 1;
 }
 
 body {

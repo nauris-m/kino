@@ -24,11 +24,31 @@
       <div class="ui-g">
         <div class="ui-g-12">
           <strong>{{ (serie.name.length>30)? (serie.name | slice:0:30)+'...':(serie.name)}}</strong>
+          <p>{{serie | json}}</p>
+
+<!--
+          <p>{{serie.id}}</p>
+          <p>{{serie.original_name}}</p>
+          <p>{{serie.name}}</p>
+          <p>{{serie.genre_ids}}</p>
+          <p>{{serie.popularity}}</p>
+          <p>{{serie.origin_country}}</p>
+          <p>{{serie.original_language}}</p>
+          <p>{{serie.vote_count}}</p>
+          <p>{{serie.vote_average}}</p>
+          <p>{{serie.first_air_date}}</p>
+          <p>{{serie.overview}}</p>
+          <p>{{serie.overview}}</p>
+          <p>{{serie.backdrop_path}}</p>
+          <p>{{serie.poster_path}}</p>
+-->
+
         </div>
       </div>
       <div class="ui-g">
         <div class="ui-g-2">
           <img class="poster" src="http://image.tmdb.org/t/p/w92//{{serie.poster_path}}">
+          <img src="http://image.tmdb.org/t/p/original//{{serie.backdrop_path}}">
         </div>
         <div class="ui-g-8">
           <p>{{serie.overview || 'N/A'}}</p>
