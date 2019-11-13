@@ -1,7 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-
-import {SerieCardComponent} from './movie-card.component';
+import {SerieCardComponent} from './serie-card.component';
 
 describe('MovieCardComponent', () => {
   let component: SerieCardComponent;
