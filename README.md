@@ -1,1 +1,2 @@
-# angular app for movies and tv
+# movies and series from themoviedb.org API
+adjust src/environments API_KEY to correct one
