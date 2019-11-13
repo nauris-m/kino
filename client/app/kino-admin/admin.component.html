@@ -1,0 +1,41 @@
+<app-loading [condition]="isLoading"></app-loading>
+<app-toast [message]="toast.message"></app-toast>
+
+<div *ngIf="!isLoading">
+  <p-panel header="User Management. Count: ({{users.length}})">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0;">
+
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+
+          <table class="table table-bordered" border="1" style="width: 600px; border-collapse: collapse">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Role</th>
+              <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="users.length === 0">
+            <tr>
+              <td colspan="4">There are no registered users.</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.role}}</td>
+              <td>
+                <button pButton label="Delete" type="button" [disabled]="auth.currentUser._id === user._id" class="ui-button-danger" (click)="deleteUser(user)"></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </p-panel>
+</div>

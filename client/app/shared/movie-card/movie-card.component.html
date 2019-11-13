@@ -1,0 +1,27 @@
+<p-card [style]="{width: '200px'}">
+  <span class="chip">{{movie.vote_average || 'N/A'}}</span>
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="placeholder" *ngIf="movie.poster_path != undefined">
+        <img src="http://image.tmdb.org/t/p/w154//{{movie.poster_path}}" alt="cover">
+      </div>
+      <div class="placeholderEmpty" *ngIf="movie.poster_path == undefined">
+        <div *ngIf="movie.poster_path == undefined"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12 titleLabel" (click)="openDialog(movie)">{{ (movie.title.length>20)? (movie.title | slice:0:20)+'...':(movie.title)}}</div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12 dateLabel" *ngIf="movie.release_date != ''">{{movie.release_date | date:'y'}}</div>
+    <div class="ui-g-12 dateLabel" *ngIf="movie.release_date == ''">N/A</div>
+  </div>
+  <div class="ui-g">
+    <!--<p-button class="ui-button-danger" icon="pi pi-star" (click)="removeFavorite(movie.id, $event)" *ngIf="isStored(movie.id)"></p-button>-->
+
+    <button icon="pi pi-info-circle" (click)="showDialog(movie)" pButton></button>&nbsp;
+    <p-button icon="pi pi-star-o" (click)="saveFavorite(movie.id, $event)" *ngIf="!isStored(movie.id)"></p-button>
+    <button (click)="removeFavorite(movie.id, $event)" icon="pi pi-star" pButton type="button" class="ui-button-success" pTooltip="Remove Favorite" *ngIf="isStored(movie.id)"></button>
+  </div>
+</p-card>

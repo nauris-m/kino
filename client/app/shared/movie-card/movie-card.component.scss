@@ -1,0 +1,37 @@
+.movieCard {
+  float: left;
+  width: 200px;
+  min-height: 350px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.placeholder {
+  height: 250px;
+  width: 155px;
+  /*border: solid 1px green;*/
+}
+
+.placeholderEmpty {
+  height: 250px;
+  width: 155px;
+  border: dashed 1px #cecece;
+}
+
+.chip {
+  /*background-color: orangered;*/
+  background-color: forestgreen;
+  color: #ffffff;
+  padding: 5px;
+  position: absolute;
+  font-size: 9px;
+  border-radius: 5px;
+}
+
+.titleLabel {
+  cursor: pointer;
+}
+
+.dateLabel {
+  font-size: 10px;
+}

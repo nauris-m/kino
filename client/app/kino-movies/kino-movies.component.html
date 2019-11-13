@@ -1,0 +1,20 @@
+<div>
+  <p-panel header="Movies">
+
+    <input #movieBox type="text" pInputText value="wick" (keyup.enter)="search(movieBox.value)"/>
+    <button pButton type="button" label="Lookup" (click)="search(movieBox.value)"></button>
+
+    <p-dialog header="Information" [(visible)]="display" [width]="500">
+      <strong>Name:</strong> {{theMovie?.title}}<br>
+      <strong>Genres:</strong> {{currentGenres}}<br>
+    </p-dialog>
+
+    <div>
+      <div *ngFor="let movie of searchResults" style="margin: 10px; display: inline-block;">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+    </div>
+
+
+  </p-panel>
+</div>

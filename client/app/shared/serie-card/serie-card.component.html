@@ -1,0 +1,29 @@
+<p-card [style]="{width: '200px'}">
+  <span class="chip">{{serie.vote_average || 'N/A'}}</span>
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="placeholder" *ngIf="serie.poster_path != undefined">
+        <img src="http://image.tmdb.org/t/p/w154//{{serie.poster_path}}" alt="cover">
+      </div>
+      <div class="placeholderEmpty" *ngIf="serie.poster_path == undefined">
+        <div *ngIf="serie.poster_path == undefined"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12 titleLabel" (click)="showDialog(serie)">{{ (serie.name.length>18)? (serie.name | slice:0:18)+'...':(serie.name)}}</div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12 dateLabel" *ngIf="serie.first_air_date != '' || serie.first_air_date != undefined">{{serie.first_air_date | date:'y'}}</div>
+    <div class="ui-g-12 dateLabel" *ngIf="serie.first_air_date == '' || serie.first_air_date == undefined">N/A</div>
+  </div>
+  <div class="ui-g">
+    <!--
+    <button icon="pi pi-bars" pButton type="button" (click)="getSeasons(serie.id)"></button>&nbsp;-->
+    <!--<p-button icon="pi pi-star" (click)="removeFavorite(serie.id, $event)" *ngIf="isStored(serie.id)"></p-button>-->
+
+    <button icon="pi pi-info-circle" (click)="showDialog(serie)" pButton></button>&nbsp;
+    <button (click)="removeFavorite(serie.id, $event)" icon="pi pi-star" pButton type="button" class="ui-button-success" pTooltip="Remove Favorite" *ngIf="isStored(serie.id)"></button>
+    <p-button icon="pi pi-star-o" (click)="saveFavorite(serie.id, $event)" *ngIf="!isStored(serie.id)"></p-button>
+  </div>
+</p-card>

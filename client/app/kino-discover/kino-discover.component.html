@@ -1,0 +1,25 @@
+<div>
+  <p-panel header="Discover">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0;">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+
+          <div>
+            <span>Series</span>
+            <p-inputSwitch [(ngModel)]="checked" (onChange)="handleChange($event)"></p-inputSwitch>
+            <span>Movies</span>
+          </div>
+
+          <div *ngFor="let movie of discoveredMovies" style="margin: 10px; display: inline-block;">
+            <app-movie-card [movie]="movie"></app-movie-card>
+          </div>
+
+          <div *ngFor="let serie of discoveredSeries" style="margin: 10px; display: inline-block;">
+            <app-serie-card [serie]="serie"></app-serie-card>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </p-panel>
+</div>

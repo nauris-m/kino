@@ -1,0 +1,57 @@
+<div>
+  <p-panel header="TV Series">
+
+    <input #serieBox type="text" pInputText value="walking" (keyup.enter)="search(serieBox.value)"/>
+    <button pButton type="button" label="Lookup" (click)="search(serieBox.value)"></button>
+
+    <!--<p>{{searchResults | json}}</p>
+    <hr>-->
+    <!--<p>{{allGenres | json}}</p>-->
+
+    <!-- todo: extract -->
+    <p-dialog header="Information" [(visible)]="display" [width]="500">
+      <strong>Name:</strong> {{theSerie?.name}}<br>
+      <strong>Original Name:</strong> {{theSerie?.original_name}}<br>
+      <strong>First Air Date:</strong> {{theSerie?.first_air_date}}<br>
+      <hr>
+      <strong>Original Language:</strong> {{theSerie?.original_language}}<br>
+      <strong>Origin Country:</strong> {{theSerie?.origin_country}}<br>
+      <hr>
+      <strong>Votes:</strong> {{theSerie?.vote_average}} ({{theSerie?.vote_count}})<br>
+      <strong>Popularity:</strong> {{theSerie?.popularity}}<br>
+      <strong>Genres:</strong> {{currentGenres}}<br>
+    </p-dialog>
+
+    <div>
+      <div *ngFor="let serie of searchResults" style="margin: 10px; display: inline-block;">
+        <app-serie-card [serie]="serie"></app-serie-card>
+      </div>
+
+      <div style="clear:both;">
+        <h3 title="for: {{selectedSerie}}">Seasons (Total: {{ seasonResults?.length }} seasons)</h3>
+        <div *ngFor="let season of seasonResults">
+          <mat-card class="example-card" ngClass="seasonCard">
+            <h4>{{season.name}}</h4>
+            <img src="http://image.tmdb.org/t/p/w154//{{season.poster_path}}">
+            <br>
+            <button mat-raised-button color="primary" (click)="getEpisodes(season.season_number)">getEpisodes</button>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="clear:both;">
+        <h3 title="for: {{selectedSerie}}">Episodes</h3>
+        <ul *ngFor="let episode of episodeResults">
+          <li>
+            <span style="font-weight: bold;">{{episode.name}}</span>
+            <span [style.color]="getDateColor(episode.air_date)">{{episode.air_date}}</span>
+            <span>{{episode.overview}}</span>
+            <mat-divider></mat-divider>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </p-panel>
+</div>
+

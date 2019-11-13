@@ -1,0 +1,21 @@
+<div>
+  <p-panel header="Favorites">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0;">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+          <h3>Movies</h3>
+          <!--<h3>Movies: {{this.saved}}</h3>-->
+          <div *ngFor="let movie of movieResults" style="margin: 10px; display: inline-block;">
+            <app-movie-card [movie]="movie"></app-movie-card>
+          </div>
+          <hr>
+          <h3>TV Series</h3>
+          <!--<h3>TV series: {{this.savedTv}}</h3>-->
+          <div *ngFor="let serie of tvResults" style="margin: 10px; display: inline-block;">
+            <app-serie-card [serie]="serie"></app-serie-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-panel>
+</div>
