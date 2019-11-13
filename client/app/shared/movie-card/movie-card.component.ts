@@ -12,7 +12,7 @@ import {KinoInfoComponent} from '../../kino-info-dialog/kino-info.component';
 })
 
 export class MovieCardComponent {
-  @Input() movie: boolean;
+  @Input() movie: any;
 
   constructor(private app: AppComponent, public dialogService: DialogService) {
   }
@@ -40,6 +40,10 @@ export class MovieCardComponent {
     } else {
       this.app.showToast('Movies', 'Favourite Already Exists..');
     }
+  }
+
+  openDialog(o: any) {
+    console.log(o);
   }
 
   removeFavorite(id: number, event: any): void {

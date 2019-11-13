@@ -12,7 +12,7 @@ import {DialogService} from 'primeng/api';
 })
 
 export class SerieCardComponent {
-  @Input() serie: boolean;
+  @Input() serie: any;
 
   constructor(private app: AppComponent, public dialogService: DialogService) {
   }
