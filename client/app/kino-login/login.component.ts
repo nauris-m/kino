@@ -47,10 +47,17 @@ export class LoginComponent implements OnInit {
     return {'has-danger': !this.password.pristine && !this.password.valid};
   }
 
+  // todo: add toast
   login() {
     this.auth.login(this.loginForm.value).subscribe(
-      res => this.router.navigate(['/dashboard']),
-      error => this.toast.setMessage('invalid email or password!', 'danger')
+      res => {
+        this.router.navigate(['/dashboard']);
+        // console.log(res);
+      },
+      e => {
+        alert('Invalid email or password! ' + e.error);
+        // console.log(error);
+      }
     );
   }
 

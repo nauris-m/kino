@@ -3,6 +3,7 @@ import {Component, Input} from '@angular/core';
 import {AppComponent} from '../../app.component';
 import {KinoInfoComponent} from '../../kino-info-dialog/kino-info.component';
 import {DialogService} from 'primeng/api';
+import {KinoSeasonsComponent} from '../../kino-seasons-dialog/kino-seasons.component';
 
 @Component({
   selector: 'app-serie-card',
@@ -50,5 +51,19 @@ export class SerieCardComponent {
   isStored(id: number): boolean {
     const allEntries = JSON.parse(localStorage.getItem('tv-series')) || [];
     return !(allEntries.indexOf(id) === -1);
+  }
+
+  getSeasons(id: number) {
+    // this.series.getSeasons(id);
+    // alert(serie.id);
+    // const cid = movie.id;
+    // console.log(cid);
+    const ref = this.dialogService.open(KinoSeasonsComponent, {
+      data: {
+        movie: id
+      },
+      header: 'Season Details',
+      width: '80%'
+    });
   }
 }

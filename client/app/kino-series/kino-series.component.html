@@ -26,32 +26,31 @@
       <div *ngFor="let serie of searchResults" style="margin: 10px; display: inline-block;">
         <app-serie-card [serie]="serie"></app-serie-card>
       </div>
-
-      <div style="clear:both;">
-        <h3 title="for: {{selectedSerie}}">Seasons (Total: {{ seasonResults?.length }} seasons)</h3>
-        <div *ngFor="let season of seasonResults">
-          <mat-card class="example-card" ngClass="seasonCard">
-            <h4>{{season.name}}</h4>
-            <img src="http://image.tmdb.org/t/p/w154//{{season.poster_path}}">
-            <br>
-            <button mat-raised-button color="primary" (click)="getEpisodes(season.season_number)">getEpisodes</button>
-          </mat-card>
-        </div>
-      </div>
-
-      <div style="clear:both;">
-        <h3 title="for: {{selectedSerie}}">Episodes</h3>
-        <ul *ngFor="let episode of episodeResults">
-          <li>
-            <span style="font-weight: bold;">{{episode.name}}</span>
-            <span [style.color]="getDateColor(episode.air_date)">{{episode.air_date}}</span>
-            <span>{{episode.overview}}</span>
-            <mat-divider></mat-divider>
-          </li>
-        </ul>
-      </div>
-
     </div>
+  </p-panel>
+
+  <br>
+  <p-panel header="Seasons">
+    <div *ngFor="let season of seasonResults" style="margin: 10px; display: inline-block;">
+      <p-card [style]="{width: '200px'}">
+        <span style="font-weight: bold">{{season.name}}</span>
+        <img src="http://image.tmdb.org/t/p/w154//{{season.poster_path}}">
+        <br>
+        <button pButton (click)="getEpisodes(season.season_number)" label="Get Episodes"></button>&nbsp;
+      </p-card>
+    </div>
+  </p-panel>
+
+  <br>
+  <p-panel header="Episodes">
+    <ul *ngFor="let episode of episodeResults">
+      <li>
+        <span style="font-weight: bold;">&quot;{{episode.name}}&quot;</span>
+        <span [style.color]="getDateColor(episode.air_date)">&nbsp;({{episode.air_date}})</span><br>
+        <span>{{episode.overview}}</span>
+        <hr>
+      </li>
+    </ul>
   </p-panel>
 </div>
 

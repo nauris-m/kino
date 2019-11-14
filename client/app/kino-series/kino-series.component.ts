@@ -22,7 +22,7 @@ export class KinoSeriesComponent implements OnInit {
   allGenres: any;
   currentGenres: string[];
 
-  constructor(private seriesService: SeriesService, private router: Router) {
+  constructor(private seriesService: SeriesService, private router: Router, /* private viewportScroller: ViewportScroller*/) {
     this.display = false;
   }
 
@@ -51,13 +51,19 @@ export class KinoSeriesComponent implements OnInit {
   }
 
   search(term: string): void {
+    this.seasonResults = [];
+    this.episodeResults = [];
+
     this.seriesService.searchSeries(term)
       .then(search => {
         this.searchResults = search.results;
       });
   }
 
+  /* todo: remove after moved */
   getSeasons(id: number): void {
+    this.episodeResults = [];
+
     this.selectedSerie = id;
     this.seriesService.getSeasons(id)
       .then(search => {
@@ -65,6 +71,15 @@ export class KinoSeriesComponent implements OnInit {
       });
   }
 
+  /* todo: remove after moved */
+  getEpisodes(seasonNum: number) {
+    this.seriesService.getEpisodes(this.selectedSerie, seasonNum)
+      .then(search => {
+        this.episodeResults = search.episodes;
+      });
+  }
+
+  /* todo: remove after moved */
   getDateColor(releaseDate: string) {
     if (moment(moment(releaseDate)).isBefore(moment().format('YYYY-MM-DD'))) {
       return 'red';

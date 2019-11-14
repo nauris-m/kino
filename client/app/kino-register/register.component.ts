@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
               public toast: ToastComponent,
               private userService: UserService) {
     this.roles = [
-      // {label: 'Role..', value: null},
+      {label: 'Role..', value: null},
       // {label: 'Admin', value: 'admin'},
       {label: 'Reader', value: 'reader'},
     ];

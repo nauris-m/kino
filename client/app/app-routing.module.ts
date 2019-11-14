@@ -27,6 +27,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin]},
   {path: 'notfound', component: NotFoundComponent},
   {path: 'v', component: ReleasesComponent},
+  {path: 'dashboard', component: KinoSeriesComponent},
   // new
   {path: 'series', component: KinoSeriesComponent},
   {path: 'movies', component: KinoMoviesComponent},
@@ -36,8 +37,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  // imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})]
 })
 
 export class AppRoutingModule {

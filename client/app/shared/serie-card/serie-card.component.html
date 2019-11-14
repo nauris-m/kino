@@ -18,11 +18,9 @@
     <div class="ui-g-12 dateLabel" *ngIf="serie.first_air_date == '' || serie.first_air_date == undefined">N/A</div>
   </div>
   <div class="ui-g">
-    <!--
-    <button icon="pi pi-bars" pButton type="button" (click)="getSeasons(serie.id)"></button>&nbsp;-->
-    <!--<p-button icon="pi pi-star" (click)="removeFavorite(serie.id, $event)" *ngIf="isStored(serie.id)"></p-button>-->
-
+    <button icon="pi pi-bars" pButton type="button" (click)="getSeasons(serie.id)"></button>&nbsp;
     <button icon="pi pi-info-circle" (click)="showDialog(serie)" pButton></button>&nbsp;
+    <!-- Fav -->
     <button (click)="removeFavorite(serie.id, $event)" icon="pi pi-star" pButton type="button" class="ui-button-success" pTooltip="Remove Favorite" *ngIf="isStored(serie.id)"></button>
     <p-button icon="pi pi-star-o" (click)="saveFavorite(serie.id, $event)" *ngIf="!isStored(serie.id)"></p-button>
   </div>

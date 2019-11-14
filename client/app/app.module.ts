@@ -61,6 +61,7 @@ import {MovieCardComponent} from './shared/movie-card/movie-card.component';
 import {SerieCardComponent} from './shared/serie-card/serie-card.component';
 import {MessageService} from 'primeng/api';
 import {KinoInfoComponent} from './kino-info-dialog/kino-info.component';
+import {KinoSeasonsComponent} from './kino-seasons-dialog/kino-seasons.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -84,7 +85,8 @@ export function tokenGetter() {
     KinoDiscoverComponent,
     MovieCardComponent,
     SerieCardComponent,
-    KinoInfoComponent
+    KinoInfoComponent,
+    KinoSeasonsComponent
   ],
   imports: [
     BrowserModule,
@@ -142,7 +144,7 @@ export function tokenGetter() {
     MessageService
   ],
   entryComponents: [
-    KinoInfoComponent
+    KinoInfoComponent, KinoSeasonsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
